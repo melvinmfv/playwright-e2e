@@ -3,9 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "scripts": {
-        "test": "cucumber-js test"
-    },
+    "scripts": {},
     "keywords": [],
     "author": "Melvin",
     "license": "ISC",
