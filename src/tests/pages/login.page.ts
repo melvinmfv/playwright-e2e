@@ -22,10 +22,28 @@ export class LoginPage extends CommonPage {
     this.signInButton = page.getByRole('button', { name: 'Sign in' });
   }
 
+  async goTo() {
+    await this.page.goto(envConfig.baseUrl + '/auth/login');
+    await this.loginWithMFid.click();
+  }
+
+  async fillInEmail(email: string) {
+    await this.emailInput.fill(email);
+  }
+
+  async onClickAgreeAndSignIn() {
+    await this.agreeAndSignIn.click();
+  }
+
+  async fillInPassword(password: string) {
+    await this.passwordInput.fill(password);
+  }
+
+  async onClickSignIn() {
+    await this.signInButton.click();
+  }
+
   async login(email: string, password: string) {
-    await this.page.goto(envConfig.baseUrl + '/auth/login', {
-      waitUntil: 'networkidle',
-    });
     await this.loginWithMFid.click();
     await this.emailInput.fill(email);
     await this.agreeAndSignIn.click();

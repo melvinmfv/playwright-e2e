@@ -4,6 +4,7 @@ import { expect, test as setup } from '../fixtures/pageFactory';
 const authFile = envConfig.storageState;
 
 setup('authentication', async ({ page, loginPage }) => {
+  await loginPage.goTo();
   await loginPage.login(envConfig.email, envConfig.password);
   await page.waitForURL(envConfig.baseUrl);
   await expect(page).toHaveTitle(
